@@ -46,11 +46,6 @@ export const radioPlayerInit = () => {
     audio.play();
     changeIconPlay();
 
-    //const radioBtn = target.closest('.radio-btn');
-    // radioVolume.addEventListener('input', () => {
-    // radioBtn.volume = radioVolume.value / 100;
-    // });
-    
   });
 
   radioStop.addEventListener('click', () => {
