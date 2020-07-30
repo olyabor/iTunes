@@ -6,6 +6,7 @@ export const radioPlayerInit = () => {
   const radioItem = document.querySelectorAll('.radio-item');
   const radioStop = document.querySelector('.radio-stop');
   const radioVolume = document.querySelector('.radio-volume');
+  const playerBtn = document.querySelectorAll('.player-btn');
 
   const audio = new Audio();
   audio.type = 'audio/aac';
@@ -60,5 +61,17 @@ export const radioPlayerInit = () => {
   radioVolume.addEventListener('input', () => {
     audio.volume = radioVolume.value / 100;
   });
-    
+
+  playerBtn.forEach((btn, i) =>
+    btn.addEventListener('click', () => {
+       const radioPlayer = document.querySelector('.radio-player');
+       const playerRadio = document.querySelector('.player-radio');
+
+       if (!playerRadio.classList.contains('active')) {
+         audio.pause();
+         changeIconPlay();
+       }
+    })
+  );
+  
 }

@@ -16,6 +16,24 @@ playerBtn.forEach((btn, i) => btn.addEventListener('click', () => {
     deactivationPlayer();
     btn.classList.add('active');
     playerBlock[i].classList.add('active');
+
+    const playerVideo = document.querySelector('.player-video');
+    const playerAudio = document.querySelector('.player-audio');
+    const videoPlayer = document.querySelector('.video-player');
+    const audioPlayer = document.querySelector('.audio-player');
+
+    if (!playerVideo.classList.contains('active')) {
+      videoPlayer.pause();
+    }
+
+    if (!playerAudio.classList.contains('active')) {
+      const audio = document.querySelector('.audio');
+      const audioButtonPlay = document.querySelector('.audio-button__play');
+      audioPlayer.pause();
+      audio.classList.toggle('play');
+      audioButtonPlay.classList.remove('fa-pause');
+      audioButtonPlay.classList.add('fa-play');
+    }
 }));
 
 radioPlayerInit();
